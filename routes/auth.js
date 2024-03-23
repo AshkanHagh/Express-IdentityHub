@@ -10,5 +10,4 @@ body('email').trim().isEmail().notEmpty(), body('password').trim().notEmpty()], 
 router.post('/login', [body('email').trim().isEmail().notEmpty(), body('password').trim().notEmpty()], authController.login);
 
 
-
 module.exports = router;
