@@ -33,13 +33,12 @@ const userSchema = new Schema({
     },
     bio : {
         type : String,
-        required : false,
         length : {max : 255}
     },
     city : {
         type : String,
-        required : false,
     }
+    
 }, {timestamps : true});
 
 

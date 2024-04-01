@@ -16,12 +16,12 @@ exports.signup = async (req, res, next) => {
             throw error;
         }
 
-        const { firstName, lastName, username, email, password, gender } = req.body;
+        const { username, email, password, gender } = req.body;
 
-        const isUsernameExists = await User.findOne({username});
-        if(isUsernameExists && 'undefined') {
+        const isExists = await User.findOne({username, email});
+        if(isExists) {
 
-            const error = new Error('Username already exists');
+            const error = new Error('Username || Email already exists');
             error.statusCode = 409;
             throw error;
         }
@@ -34,8 +34,6 @@ exports.signup = async (req, res, next) => {
 
         const user = new User({
 
-            firstName,
-            lastName,
             username,
             email,
             password : hashedPass,

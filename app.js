@@ -18,7 +18,7 @@ app.use(cors());
 
 
 app.use('/api/auth', authRouter);
-app.use('/api/user', profileRouter);
+app.use('/api/person', profileRouter);
 
 
 app.use((error, req, res, next) => {
